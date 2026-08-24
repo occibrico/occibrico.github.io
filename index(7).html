@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OCCI'BRICO - Entretien extérieur et intérieur en Occitanie. Espaces verts, nettoyage haute pression, nettoyage de surfaces, pose de climatisation sans mise en service et homme toute main.">
+  <title>OCCI'BRICO | Entretien intérieur & extérieur</title>
+
+  <style>
+    :root{
+      --blue:#082c78;
+      --blue-dark:#061f58;
+      --red:#e10d16;
+      --white:#ffffff;
+      --light:#f5f7fb;
+      --text:#182033;
+      --shadow:0 8px 24px rgba(6,31,88,.12);
+      --radius:12px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px,92%);margin:auto}
+
+    /* HEADER */
+    header{
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 12px rgba(0,0,0,.08);
+    }
+    .header-inner{
+      min-height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:250px;
+    }
+    .brand-mark{
+      width:62px;
+      height:62px;
+      border-radius:10px;
+      background:linear-gradient(145deg,#e10d16 0 48%,#082c78 49%);
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 3px 8px rgba(0,0,0,.15);
+    }
+    .brand-mark:before{
+      content:"✚";
+      position:absolute;
+      color:#fff;
+      font-size:30px;
+      font-weight:bold;
+      left:9px;
+      top:8px;
+      transform:rotate(18deg);
+    }
+    .brand-mark:after{
+      content:"⌂";
+      position:absolute;
+      color:#fff;
+      font-size:34px;
+      right:8px;
+      bottom:2px;
+      font-weight:bold;
+    }
+    .brand-name{
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:var(--blue);
+      white-space:nowrap;
+    }
+    .brand-name span{color:var(--red)}
+    .brand-sub{
+      display:block;
+      font-size:10px;
+      font-weight:700;
+      color:var(--blue);
+      letter-spacing:.8px;
+      margin-top:-3px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:24px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--blue);
+    }
+    nav a{transition:.2s}
+    nav a:hover{color:var(--red)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:0;
+      border-radius:6px;
+      padding:13px 20px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn-red{background:var(--red);color:#fff}
+    .btn-red:hover{background:#b90910;transform:translateY(-1px)}
+    .btn-blue{background:var(--blue);color:#fff}
+    .btn-blue:hover{background:var(--blue-dark)}
+    .menu-toggle{display:none;background:none;border:0;font-size:28px;color:var(--blue)}
+
+    /* HERO */
+    .hero{
+      min-height:540px;
+      display:grid;
+      grid-template-columns:43% 57%;
+      background:#fff;
+      overflow:hidden;
+    }
+    .hero-copy{
+      padding:62px 42px 55px max(5vw,30px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      z-index:2;
+    }
+    .hero-copy:after{
+      content:"";
+      position:absolute;
+      right:-1px;
+      top:0;
+      width:70px;
+      height:100%;
+      background:#fff;
+      clip-path:polygon(55% 0,100% 0,100% 100%,0 100%);
+      z-index:-1;
+    }
+    .eyebrow{
+      color:var(--blue);
+      font-weight:900;
+      letter-spacing:.5px;
+      font-size:14px;
+      margin-bottom:8px;
+    }
+    .hero h1{
+      color:var(--blue);
+      font-size:clamp(34px,4vw,55px);
+      line-height:1.02;
+      text-transform:uppercase;
+      font-weight:950;
+      margin-bottom:20px;
+    }
+    .hero h1 .red{color:var(--red)}
+    .hero p{
+      max-width:550px;
+      font-size:16px;
+      margin-bottom:22px;
+    }
+    .checks{
+      list-style:none;
+      display:grid;
+      gap:9px;
+      margin-bottom:25px;
+      font-weight:700;
+      font-size:14px;
+    }
+    .checks li:before{
+      content:"✓";
+      display:inline-grid;
+      place-items:center;
+      width:19px;
+      height:19px;
+      border-radius:50%;
+      background:var(--blue);
+      color:#fff;
+      margin-right:9px;
+      font-size:12px;
+    }
+    .hero-phone{
+      align-self:flex-start;
+      font-size:15px;
+      padding:15px 24px;
+    }
+    .location{
+      color:var(--blue);
+      font-weight:900;
+      margin-top:14px;
+      font-size:14px;
+    }
+    .hero-photo{
+      min-height:540px;
+      background:
+        linear-gradient(90deg,rgba(8,44,120,.08),rgba(8,44,120,0)),
+        url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85")
+        center/cover;
+      position:relative;
+    }
+    .hero-photo:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,rgba(255,255,255,.10),transparent 30%);
+    }
+
+    /* SECTION HEADINGS */
+    .section{padding:62px 0}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title h2{
+      color:var(--blue);
+      text-transform:uppercase;
+      font-size:30px;
+      font-weight:950;
+      display:inline-block;
+      position:relative;
+      padding-bottom:13px;
+    }
+    .section-title h2:after{
+      content:"";
+      position:absolute;
+      width:58px;
+      height:4px;
+      background:var(--red);
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+    }
+    .section-title p{margin-top:12px;color:#5d6472}
+
+    /* SERVICES */
+    .services{background:#fff}
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:14px;
+    }
+    .service-card{
+      border:1px solid #e1e5ec;
+      border-radius:9px;
+      padding:17px 12px 15px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      background:#fff;
+      min-height:410px;
+      text-align:center;
+    }
+    .service-icon{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      margin:0 auto 12px;
+      display:grid;
+      place-items:center;
+      background:var(--blue);
+      color:#fff;
+      font-size:25px;
+      font-weight:bold;
+    }
+    .service-card:nth-child(even) .service-icon{background:var(--red)}
+    .service-card h3{
+      color:var(--blue);
+      text-transform:uppercase;
+      font-size:16px;
+      line-height:1.2;
+      min-height:42px;
+      margin-bottom:12px;
+    }
+    .service-card:nth-child(even) h3{color:var(--red)}
+    .service-card img{
+      width:100%;
+      height:130px;
+      object-fit:cover;
+      border-radius:6px;
+      margin-bottom:12px;
+    }
+    .service-card p{font-size:12px;flex:1}
+    .service-card .btn{
+      font-size:11px;
+      padding:10px 12px;
+      margin-top:12px;
+      align-self:center;
+    }
+
+    /* FEATURE */
+    .feature{
+      background:var(--blue);
+      color:#fff;
+      overflow:hidden;
+    }
+    .feature-grid{
+      display:grid;
+      grid-template-columns:32% 68%;
+      align-items:stretch;
+    }
+    .feature-image{
+      min-height:300px;
+      background:url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85") center/cover;
+    }
+    .feature-copy{padding:52px 60px}
+    .feature-copy h2{
+      text-transform:uppercase;
+      font-size:30px;
+      margin-bottom:13px;
+    }
+    .feature-copy p{max-width:690px;margin-bottom:20px}
+    .feature-copy .btn{background:#fff;color:var(--blue)}
+
+    /* WHY */
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+    }
+    .why-card{
+      padding:15px 24px;
+      text-align:center;
+      border-right:1px solid #d9dde5;
+    }
+    .why-card:last-child{border-right:0}
+    .why-icon{
+      width:54px;height:54px;margin:0 auto 12px;
+      display:grid;place-items:center;
+      font-size:28px;color:var(--blue);
+    }
+    .why-card:nth-child(2) .why-icon,
+    .why-card:nth-child(4) .why-icon{color:var(--red)}
+    .why-card h3{
+      color:var(--blue);
+      text-transform:uppercase;
+      font-size:15px;
+      margin-bottom:8px;
+    }
+    .why-card:nth-child(2) h3,
+    .why-card:nth-child(4) h3{color:var(--red)}
+    .why-card p{font-size:13px}
+
+    /* REALISATIONS */
+    .real-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+    .real-item{
+      height:210px;
+      border-radius:8px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--shadow);
+    }
+    .real-item img{width:100%;height:100%;object-fit:cover}
+    .real-item span{
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      width:42px;height:42px;border-radius:50%;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.88);
+      color:var(--blue);
+      font-size:20px;
+      font-weight:bold;
+    }
+    .center-btn{text-align:center;margin-top:28px}
+
+    /* CTA */
+    .cta{
+      background:var(--red);
+      color:#fff;
+      padding:25px 0;
+    }
+    .cta-inner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:25px;
+      text-align:center;
+    }
+    .cta strong{font-size:20px;text-transform:uppercase}
+    .cta .btn{background:#fff;color:var(--red)}
+
+    /* FOOTER */
+    footer{background:var(--blue);color:#fff}
+    .footer-main{
+      padding:25px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+    .footer-brand .brand-name{color:#fff;font-size:25px}
+    .footer-brand .brand-sub{color:#fff}
+    .footer-contact{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:25px;
+      font-size:14px;
+      font-weight:700;
+    }
+    .footer-bottom{
+      background:var(--red);
+      padding:8px 0;
+      text-align:center;
+      font-size:11px;
+    }
+
+    @media(max-width:1050px){
+      nav{gap:13px;font-size:11px}
+      .brand{min-width:auto}
+      .brand-name{font-size:25px}
+      .service-grid{grid-template-columns:repeat(3,1fr)}
+      .service-card{min-height:380px}
+    }
+
+    @media(max-width:800px){
+      .header-inner{min-height:76px}
+      .menu-toggle{display:block}
+      nav{
+        display:none;
+        position:absolute;
+        top:76px;
+        left:0;
+        width:100%;
+        background:#fff;
+        padding:20px;
+        flex-direction:column;
+        box-shadow:0 8px 15px rgba(0,0,0,.12);
+      }
+      nav.open{display:flex}
+      .hero{grid-template-columns:1fr}
+      .hero-copy{padding:45px 7%}
+      .hero-copy:after{display:none}
+      .hero-photo{min-height:360px;order:-1}
+      .feature-grid{grid-template-columns:1fr}
+      .feature-image{min-height:260px}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .why-card{border-bottom:1px solid #d9dde5}
+      .real-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-main{flex-direction:column;text-align:center}
+    }
+
+    @media(max-width:560px){
+      .brand-mark{width:48px;height:48px}
+      .brand-name{font-size:22px}
+      .brand-sub{font-size:8px}
+      .service-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .why-card{border-right:0}
+      .real-grid{grid-template-columns:1fr}
+      .cta-inner{flex-direction:column}
+      .hero h1{font-size:36px}
+      .feature-copy{padding:40px 25px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a href="#accueil" class="brand" aria-label="OCCI'BRICO accueil">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div>
+        <div class="brand-name">Occi<span>’</span>Brico</div>
+        <span class="brand-sub">ENTRETIEN INTÉRIEUR &amp; EXTÉRIEUR</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" aria-label="Ouvrir le menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+
+    <nav>
+      <a href="#accueil">ACCUEIL</a>
+      <a href="#services">SERVICES</a>
+      <a href="#apropos">À PROPOS</a>
+      <a href="#realisations">RÉALISATIONS</a>
+      <a href="#contact">CONTACT</a>
+      <a href="#contact" class="btn btn-red">DEMANDER UN DEVIS</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">OCCI'BRICO • OCCITANIE</div>
+      <h1>
+        DES EXTÉRIEURS<br>
+        <span class="red">PROPRES ET SOIGNÉS,</span><br>
+        TOUTE L'ANNÉE
+      </h1>
+      <p>
+        OCCI'BRICO s'occupe de l'entretien de vos espaces verts
+        et du nettoyage de vos surfaces pour un extérieur propre et accueillant.
+      </p>
+
+      <ul class="checks">
+        <li>Travail soigné et professionnel</li>
+        <li>Intervention rapide</li>
+        <li>Matériel adapté et performant</li>
+        <li>Satisfaction garantie</li>
+      </ul>
+
+      <a href="tel:0618718206" class="btn btn-red hero-phone">☎ APPELEZ DÈS MAINTENANT POUR UN DEVIS</a>
+      <div class="location">📍 TOUTE L'OCCITANIE</div>
+    </div>
+
+    <div class="hero-photo" role="img" aria-label="Nettoyage d'une terrasse extérieure"></div>
+  </section>
+
+  <section id="services" class="section services">
+    <div class="container">
+      <div class="section-title">
+        <h2>NOS SERVICES</h2>
+        <p>Des prestations complètes pour un extérieur propre et soigné.</p>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+          <div class="service-icon">✿</div>
+          <h3>ENTRETIEN<br>DES ESPACES VERTS</h3>
+          <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=700&q=80" alt="Entretien des espaces verts">
+          <p>Tonte, taille, débroussaillage, entretien de massifs et évacuation des déchets verts.</p>
+          <a href="#contact" class="btn btn-blue">EN SAVOIR PLUS</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⌁</div>
+          <h3>NETTOYAGE<br>HAUTE PRESSION</h3>
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=700&q=80" alt="Nettoyage haute pression">
+          <p>Nettoyage en profondeur de vos terrasses, allées, murs, façades, clôtures, toitures, garages, cours et autres surfaces.</p>
+          <a href="#contact" class="btn btn-red">EN SAVOIR PLUS</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✧</div>
+          <h3>NETTOYAGE<br>DE SURFACES</h3>
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80" alt="Nettoyage de surfaces">
+          <p>Nettoyage de toutes surfaces pour un environnement propre, sain et durable.</p>
+          <a href="#contact" class="btn btn-blue">EN SAVOIR PLUS</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">❄</div>
+          <h3>POSE DE<br>CLIMATISATION</h3>
+          <img src="https://images.unsplash.com/photo-1631545806609-3c6b6f6f9a2f?auto=format&fit=crop&w=700&q=80" alt="Installation de climatisation">
+          <p>Installation de votre système de climatisation selon les normes en vigueur. <strong>(Mise en service non incluse)</strong></p>
+          <a href="#contact" class="btn btn-red">EN SAVOIR PLUS</a>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⚒</div>
+          <h3>HOMME<br>TOUTE MAIN</h3>
+          <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=700&q=80" alt="Homme toute main">
+          <p>Petits travaux et dépannages du quotidien : fixations, montages, réglages, petites réparations, entretien général...</p>
+          <a href="#contact" class="btn btn-blue">EN SAVOIR PLUS</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="feature">
+    <div class="feature-grid">
+      <div class="feature-image" role="img" aria-label="Outillage pour petits travaux"></div>
+      <div class="feature-copy">
+        <h2>HOMME TOUTE MAIN</h2>
+        <p>
+          Un service pratique, fiable et polyvalent pour vous simplifier la vie au quotidien.
+        </p>
+        <p>
+          Fixations, montages, remplacement d'éléments, réglages, petites réparations,
+          entretien général...
+        </p>
+        <a href="#contact" class="btn">EN SAVOIR PLUS →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>POURQUOI CHOISIR OCCI'BRICO ?</h2>
+      </div>
+
+      <div class="why-grid">
+        <article class="why-card">
+          <div class="why-icon">♢</div>
+          <h3>TRAVAIL SOIGNÉ<br>ET PROFESSIONNEL</h3>
+          <p>Une prestation de qualité à chaque intervention.</p>
+        </article>
+        <article class="why-card">
+          <div class="why-icon">◷</div>
+          <h3>INTERVENTION RAPIDE<br>ET EFFICACE</h3>
+          <p>Réactivité et disponibilité pour vos besoins.</p>
+        </article>
+        <article class="why-card">
+          <div class="why-icon">⚙</div>
+          <h3>MATÉRIEL ADAPTÉ<br>ET PERFORMANT</h3>
+          <p>Des équipements professionnels pour des résultats durables.</p>
+        </article>
+        <article class="why-card">
+          <div class="why-icon">♧</div>
+          <h3>SATISFACTION<br>GARANTIE</h3>
+          <p>Votre satisfaction est notre priorité.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations" class="section" style="background:#f5f7fb">
+    <div class="container">
+      <div class="section-title">
+        <h2>RÉALISATIONS</h2>
+        <p>Découvrez quelques exemples de nos interventions.</p>
+      </div>
+
+      <div class="real-grid">
+        <div class="real-item">
+          <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=85" alt="Entretien de haie">
+          <span>⌕</span>
+        </div>
+        <div class="real-item">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85" alt="Nettoyage de terrasse">
+          <span>⌕</span>
+        </div>
+        <div class="real-item">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85" alt="Nettoyage extérieur">
+          <span>⌕</span>
+        </div>
+        <div class="real-item">
+          <img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=900&q=85" alt="Travaux et bricolage">
+          <span>⌕</span>
+        </div>
+      </div>
+
+      <div class="center-btn">
+        <a href="#contact" class="btn btn-blue">VOIR TOUTES NOS RÉALISATIONS</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <div class="container cta-inner">
+      <strong>Un projet ? Demandez votre devis</strong>
+      <a href="tel:0618718206" class="btn">☎ 06 18 71 82 06</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-main">
+    <div class="footer-brand">
+      <div class="brand-name">Occi<span>’</span>Brico</div>
+      <span class="brand-sub">ENTRETIEN INTÉRIEUR &amp; EXTÉRIEUR</span>
+    </div>
+
+    <div class="footer-contact">
+      <a href="tel:0618718206">☎ 06 18 71 82 06</a>
+      <a href="mailto:occibrico.narbonne@gmail.com">✉ occibrico.narbonne@gmail.com</a>
+      <span>📍 Toute l'Occitanie</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 OCCI'BRICO — Tous droits réservés
+  </div>
+</footer>
+
+</body>
+</html>
