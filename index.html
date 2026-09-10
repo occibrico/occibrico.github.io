@@ -799,6 +799,178 @@
 </div>
 </div>
 </div>
+</div>
+  </section>
+
+  <section id="contact" class="section devis">
+    <div class="container">
+      <div class="section-title">
+        <h2>DEMANDEZ VOTRE DEVIS</h2>
+      </div>
+
+      <p class="devis-intro">
+        Vous avez un projet ou des travaux à réaliser ? Remplissez ce formulaire
+        et décrivez-nous votre besoin. Nous vous recontacterons rapidement.
+      </p>
+
+      <div class="devis-box">
+        <form class="devis-form" action="https://formsubmit.co/occibrico.narbonne@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Nouvelle demande de devis - OCCI'BRICO">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="hidden" name="_next" value="https://occibrico.github.io/">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom et prénom *</label>
+              <input id="nom" name="Nom et prénom" type="text" placeholder="Votre nom et prénom" required>
+            </div>
+            <div class="form-group">
+              <label for="telephone">Téléphone *</label>
+              <input id="telephone" name="Téléphone" type="tel" placeholder="06 XX XX XX XX" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Adresse e-mail *</label>
+              <input id="email" name="E-mail" type="email" placeholder="votre@email.fr" required>
+            </div>
+            <div class="form-group">
+              <label for="ville">Ville où se situent les travaux *</label>
+              <input id="ville" name="Ville des travaux" type="text" placeholder="Ex. Narbonne" required>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Quel type de prestation souhaitez-vous ? *</label>
+            <div class="service-options">
+              <div class="service-option">
+                <input id="srv-espaces" type="checkbox" name="Prestations" value="Entretien des espaces verts">
+                <label for="srv-espaces">🌿 Entretien des espaces verts</label>
+              </div>
+              <div class="service-option">
+                <input id="srv-haies" type="checkbox" name="Prestations" value="Taille de haies / arbustes">
+                <label for="srv-haies">✂️ Taille de haies / arbustes</label>
+              </div>
+              <div class="service-option">
+                <input id="srv-debrou" type="checkbox" name="Prestations" value="Débroussaillage">
+                <label for="srv-debrou">🌳 Débroussaillage</label>
+              </div>
+              <div class="service-option">
+                <input id="srv-hp" type="checkbox" name="Prestations" value="Nettoyage haute pression">
+                <label for="srv-hp">💦 Nettoyage haute pression</label>
+              </div>
+              <div class="service-option">
+                <input id="srv-clim" type="checkbox" name="Prestations" value="Pose de climatisation (sans mise en service)">
+                <label for="srv-clim">❄️ Pose de climatisation (sans mise en service)</label>
+              </div>
+              <div class="service-option">
+                <input id="srv-brico" type="checkbox" name="Prestations" value="Petits travaux / Homme toute main">
+                <label for="srv-brico">🔨 Petits travaux / Homme toute main</label>
+              </div>
+              <div class="service-option">
+                <input id="srv-autre" type="checkbox" name="Prestations" value="Autre">
+                <label for="srv-autre">🛠️ Autre</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="description">Décrivez votre projet *</label>
+            <textarea id="description" name="Description du projet" placeholder="Décrivez-nous votre projet, les travaux à effectuer, l'état actuel des lieux et vos besoins particuliers..." required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="surface">Surface approximative</label>
+              <input id="surface" name="Surface approximative" type="text" placeholder="Ex. 50 m²">
+            </div>
+            <div class="form-group">
+              <label for="delai">Quand souhaitez-vous réaliser les travaux ?</label>
+              <select id="delai" name="Délai souhaité">
+                <option value="">Sélectionnez une réponse</option>
+                <option>Dès que possible</option>
+                <option>Dans les prochaines semaines</option>
+                <option>Dans les prochains mois</option>
+                <option>Je ne sais pas encore</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="photos">Photos du projet (facultatif)</label>
+              <input id="photos" name="Photos" type="file" accept="image/*" multiple>
+              <span class="form-note">Vous pouvez joindre quelques photos pour nous aider à évaluer votre demande.</span>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget approximatif (facultatif)</label>
+              <input id="budget" name="Budget approximatif" type="text" placeholder="Ex. 500 €">
+            </div>
+          </div>
+
+          <label class="privacy">
+            <input type="checkbox" name="Consentement" value="J'accepte que les informations renseignées soient utilisées afin d'être recontacté concernant ma demande de devis." required>
+            <span>J'accepte que les informations renseignées soient utilisées afin d'être recontacté concernant ma demande de devis. *</span>
+          </label>
+
+          <p class="form-note">
+            Ce formulaire constitue une demande de devis. Le montant définitif pourra être établi après étude de votre projet et, si nécessaire, visite sur place.
+          </p>
+
+          <button type="submit" class="btn btn-red predevis-submit">ENVOYER MA DEMANDE DE DEVIS</button>
+          <div class="form-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container cta-inner">
+      <strong>Une question ? Contactez OCCI'BRICO</strong>
+      <a href="tel:0618718206" class="btn">☎ 06 18 71 82 06</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-main">
+    <div class="footer-brand">
+      <div class="brand-name">Occi<span>’</span>Brico</div>
+      <span class="brand-sub">ENTRETIEN INTÉRIEUR &amp; EXTÉRIEUR</span>
+    </div>
+
+    <div class="footer-contact">
+      <a href="tel:0618718206">☎ 06 18 71 82 06</a>
+      <a href="mailto:occibrico.narbonne@gmail.com">✉ occibrico.narbonne@gmail.com</a>
+      <span>📍 Toute l'Occitanie</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 OCCI'BRICO — Tous droits réservés
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const form = document.querySelector('.predevis-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    const services = form.querySelectorAll('input[name="Prestations"]:checked');
+    if(!services.length){
+      e.preventDefault();
+      alert('Merci de sélectionner au moins une prestation.');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
 
     </div>
   </section>
