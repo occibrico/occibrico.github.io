@@ -125,6 +125,101 @@
     .btn-blue:hover{background:var(--blue-dark)}
     .menu-toggle{display:none;background:none;border:0;font-size:28px;color:var(--blue)}
 
+    /* HEADER */
+    header{
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 12px rgba(0,0,0,.08);
+    }
+    .header-inner{
+      min-height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:250px;
+    }
+    .brand-mark{
+      width:62px;
+      height:62px;
+      border-radius:10px;
+      background:linear-gradient(145deg,#e10d16 0 48%,#082c78 49%);
+      position:relative;
+      overflow:hidden;
+      box-shadow:0 3px 8px rgba(0,0,0,.15);
+    }
+    .brand-mark:before{
+      content:"✚";
+      position:absolute;
+      color:#fff;
+      font-size:30px;
+      font-weight:bold;
+      left:9px;
+      top:8px;
+      transform:rotate(18deg);
+    }
+    .brand-mark:after{
+      content:"⌂";
+      position:absolute;
+      color:#fff;
+      font-size:34px;
+      right:8px;
+      bottom:2px;
+      font-weight:bold;
+    }
+    .brand-name{
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:-1px;
+      color:var(--blue);
+      white-space:nowrap;
+    }
+    .brand-name span{color:var(--red)}
+    .brand-sub{
+      display:block;
+      font-size:10px;
+      font-weight:700;
+      color:var(--blue);
+      letter-spacing:.8px;
+      margin-top:-3px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:24px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--blue);
+    }
+    nav a{transition:.2s}
+    nav a:hover{color:var(--red)}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border:0;
+      border-radius:6px;
+      padding:13px 20px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .btn-red{background:var(--red);color:#fff}
+    .btn-red:hover{background:#b90910;transform:translateY(-1px)}
+    .btn-blue{background:var(--blue);color:#fff}
+    .btn-blue:hover{background:var(--blue-dark)}
+    .menu-toggle{display:none;background:none;border:0;font-size:28px;color:var(--blue)}
+
     /* HERO */
     .hero{
       min-height:540px;
@@ -204,96 +299,20 @@
       margin-top:14px;
       font-size:14px;
     }
-    /* IMAGE HERO COUPÉE EN DEUX : image actuelle + climatisation */
     .hero-photo{
       min-height:540px;
-      display:flex;
+      background:
+        linear-gradient(90deg,rgba(8,44,120,.08),rgba(8,44,120,0)),
+        url("hero.png")
+        center/cover;
       position:relative;
-      overflow:hidden;
-      background:#fff;
-      gap:0;
     }
-    .hero-photo-half{
-      position:relative;
-      width:50%;
-      min-height:540px;
-      overflow:hidden;
-    }
-    .hero-photo-half img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      max-width:none;
-      object-fit:cover;
-      object-position:center;
-      transition:transform .65s ease;
-      display:block;
-    }
-    .hero-photo-half:hover img{transform:scale(1.10)}
-    .hero-photo-half:after{
+    .hero-photo:after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.12));
-      pointer-events:none;
+      background:linear-gradient(90deg,rgba(255,255,255,.10),transparent 30%);
     }
-    .hero-photo-label{
-      position:absolute;
-      z-index:3;
-      left:18px;
-      right:18px;
-      top:24px;
-      padding:12px 14px;
-      background:rgba(8,44,120,.94);
-      color:#fff;
-      border-right:7px solid var(--red);
-      font-size:15px;
-      font-weight:900;
-      line-height:1.15;
-      text-align:center;
-      text-transform:uppercase;
-      box-shadow:0 5px 15px rgba(0,0,0,.20);
-      pointer-events:none;
-    }
-    .hero-photo-label span{
-      display:block;
-      margin-top:5px;
-      font-size:11px;
-      font-weight:700;
-      text-transform:none;
-    }
-    .hero-photo-divider{
-      position:absolute;
-      z-index:5;
-      top:0;
-      bottom:0;
-      left:50%;
-      width:6px;
-      transform:translateX(-50%);
-      background:#fff;
-      box-shadow:0 0 12px rgba(0,0,0,.20);
-      pointer-events:none;
-    }
-    .hero-photo-zoom{
-      position:absolute;
-      z-index:4;
-      left:50%;
-      bottom:20px;
-      transform:translateX(-50%);
-      width:34px;
-      height:34px;
-      border-radius:50%;
-      border:2px solid #fff;
-      background:rgba(8,44,120,.85);
-      color:#fff;
-      display:grid;
-      place-items:center;
-      font-size:18px;
-      font-weight:900;
-      pointer-events:none;
-    }
-
     /* SECTION HEADINGS */
     .section{padding:62px 0}
     .section-title{text-align:center;margin-bottom:38px}
@@ -600,160 +619,7 @@
 .facebook-button:hover{
     background:#0d65d9;
     transform:translateY(-2px);
-} 
-    /* PRE-DEVIS */
-    .predevis{
-      background:#fff;
-    }
-    .predevis-box{
-      width:min(900px,92%);
-      margin:0 auto;
-      background:#fff;
-      border:1px solid #e1e5ec;
-      border-top:5px solid var(--blue);
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      padding:32px;
-    }
-    .predevis-intro{
-      text-align:center;
-      color:#5d6472;
-      margin:-18px auto 25px;
-      max-width:720px;
-    }
-    .predevis-form{
-      display:grid;
-      gap:18px;
-    }
-    .form-row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-    }
-    .form-group{
-      display:flex;
-      flex-direction:column;
-      gap:7px;
-    }
-    .form-group.full{grid-column:1/-1}
-    .form-group label{
-      color:var(--blue);
-      font-weight:800;
-      font-size:13px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea{
-      width:100%;
-      border:1px solid #d5dbe5;
-      border-radius:7px;
-      padding:12px 13px;
-      font:inherit;
-      color:var(--text);
-      background:#fff;
-      outline:none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus{
-      border-color:var(--blue);
-      box-shadow:0 0 0 3px rgba(8,44,120,.08);
-    }
-    .form-group textarea{min-height:120px;resize:vertical}
-    .service-options{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:10px;
-    }
-    .service-option{
-      position:relative;
-    }
-    .service-option input{
-      position:absolute;
-      opacity:0;
-      pointer-events:none;
-    }
-    .service-option label{
-      display:flex;
-      align-items:center;
-      gap:9px;
-      min-height:48px;
-      padding:10px 12px;
-      border:1px solid #d5dbe5;
-      border-radius:7px;
-      cursor:pointer;
-      color:var(--text);
-      font-weight:700;
-      background:#fff;
-    }
-    .service-option label:before{
-      content:"";
-      width:18px;
-      height:18px;
-      flex:0 0 18px;
-      border:2px solid #aeb6c4;
-      border-radius:4px;
-      background:#fff;
-    }
-    .service-option input:checked + label{
-      border-color:var(--blue);
-      background:#f5f7fb;
-      color:var(--blue);
-    }
-    .service-option input:checked + label:before{
-      content:"✓";
-      display:grid;
-      place-items:center;
-      background:var(--blue);
-      border-color:var(--blue);
-      color:#fff;
-      font-size:12px;
-      font-weight:900;
-    }
-    .form-note{
-      font-size:11px;
-      color:#6b7280;
-    }
-    .privacy{
-      display:flex;
-      align-items:flex-start;
-      gap:9px;
-      font-size:12px;
-      color:#555e6d;
-    }
-    .privacy input{margin-top:3px}
-    .predevis-submit{
-      width:100%;
-      padding:15px 20px;
-      font-size:14px;
-    }
-    .form-status{
-      display:none;
-      padding:12px;
-      border-radius:7px;
-      text-align:center;
-      font-weight:700;
-    }
-    @media(max-width:560px){
-      .predevis-box{padding:22px 16px}
-      .form-row,.service-options{grid-template-columns:1fr}
-    }
-
-  
-    @media(max-width:800px){
-      .hero-photo{min-height:430px}
-      .hero-photo-half{min-height:430px}
-      .hero-photo-label{left:10px;right:10px;top:15px;font-size:12px;padding:9px 8px}
-      .hero-photo-label span{font-size:9px}
-    }
-    @media(max-width:560px){
-      .hero-photo{min-height:360px}
-      .hero-photo-half{min-height:360px}
-      .hero-photo-label{font-size:10px}
-      .hero-photo-label span{font-size:8px}
-    }
-
-  </style>
+} </style>
 </head>
 
 <body>
@@ -808,27 +674,7 @@
       <div class="location">📍 TOUTE L'OCCITANIE</div>
     </div>
 
-    <div class="hero-photo" aria-label="Nos prestations">
-      <div class="hero-photo-half">
-        <img src="héros.png" alt="Nettoyage haute pression d'une terrasse">
-        <div class="hero-photo-label">
-          NETTOYAGE HAUTE PRESSION
-          <span>Terrasses · Allées · Façades</span>
-        </div>
-        <div class="hero-photo-zoom">⌕</div>
-      </div>
-
-      <div class="hero-photo-half">
-        <img src="clim-ext.jpg" alt="Pose de climatisation">
-        <div class="hero-photo-label">
-          POSE DE CLIMATISATION
-          <span>Pour votre confort (sans la mise en service)</span>
-        </div>
-        <div class="hero-photo-zoom">⌕</div>
-      </div>
-
-      <div class="hero-photo-divider" aria-hidden="true"></div>
-    </div>
+    <div class="hero-photo" role="img" aria-label="Nettoyage d'une terrasse extérieure"></div>
   </section>
 
   <section id="services" class="section services">
@@ -1047,24 +893,23 @@
 </div>
 </div>
 </div>
-
-    </div>
+</div>
   </section>
 
-  <section id="contact" class="section predevis">
+  <section id="contact" class="section devis">
     <div class="container">
       <div class="section-title">
-        <h2>DEMANDEZ VOTRE PRÉ-DEVIS</h2>
+        <h2>DEMANDEZ VOTRE DEVIS</h2>
       </div>
 
-      <p class="predevis-intro">
+      <p class="devis-intro">
         Vous avez un projet ou des travaux à réaliser ? Remplissez ce formulaire
         et décrivez-nous votre besoin. Nous vous recontacterons rapidement.
       </p>
 
-      <div class="predevis-box">
-        <form class="predevis-form" action="https://formsubmit.co/occibrico.narbonne@gmail.com" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="_subject" value="Nouvelle demande de pré-devis - OCCI'BRICO">
+      <div class="devis-box">
+        <form class="devis-form" action="https://formsubmit.co/occibrico.narbonne@gmail.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Nouvelle demande de devis - OCCI'BRICO">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_next" value="https://occibrico.github.io/">
@@ -1160,15 +1005,15 @@
           </div>
 
           <label class="privacy">
-            <input type="checkbox" name="Consentement" value="J'accepte que les informations renseignées soient utilisées afin d'être recontacté concernant ma demande de pré-devis." required>
-            <span>J'accepte que les informations renseignées soient utilisées afin d'être recontacté concernant ma demande de pré-devis. *</span>
+            <input type="checkbox" name="Consentement" value="J'accepte que les informations renseignées soient utilisées afin d'être recontacté concernant ma demande de devis." required>
+            <span>J'accepte que les informations renseignées soient utilisées afin d'être recontacté concernant ma demande de devis. *</span>
           </label>
 
           <p class="form-note">
-            Ce formulaire constitue une demande de pré-devis. Le montant définitif pourra être établi après étude de votre projet et, si nécessaire, visite sur place.
+            Ce formulaire constitue une demande de devis. Le montant définitif pourra être établi après étude de votre projet et, si nécessaire, visite sur place.
           </p>
 
-          <button type="submit" class="btn btn-red predevis-submit">ENVOYER MA DEMANDE DE PRÉ-DEVIS</button>
+          <button type="submit" class="btn btn-red predevis-submit">ENVOYER MA DEMANDE DE DEVIS</button>
           <div class="form-status" aria-live="polite"></div>
         </form>
       </div>
@@ -1202,21 +1047,6 @@
     © 2026 OCCI'BRICO — Tous droits réservés
   </div>
 </footer>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const form = document.querySelector('.predevis-form');
-  if(!form) return;
-  form.addEventListener('submit', function(e){
-    const services = form.querySelectorAll('input[name="Prestations"]:checked');
-    if(!services.length){
-      e.preventDefault();
-      alert('Merci de sélectionner au moins une prestation.');
-    }
-  });
-});
-</script>
 
 </body>
 </html>
